@@ -167,9 +167,9 @@ export default function Home() {
         <h1 className="text-6xl font-bold mb-4 mt-32">Rohan Naidu</h1>
         <p className="text-3xl mb-6">Full Stack Developer</p>
         <p className="text-center max-w-2xl mb-8 px-4">
-          Welcome to my portfolio! I'm a passionate full stack developer with
-          expertise in React, Node.js, and cloud technologies. I love building
-          scalable and efficient web applications that solve real-world
+          Welcome to my portfolio! I&apos;m a passionate full stack developer
+          with expertise in React, Node.js, and cloud technologies. I love
+          building scalable and efficient web applications that solve real-world
           problems.
         </p>
         <button
@@ -239,15 +239,15 @@ export default function Home() {
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-6">About Me</h2>
           <p className="mb-4">
-            Hi, I'm Rohan Naidu, a full stack developer with over 3 years of
-            experience in building web applications. I specialize in JavaScript
-            technologies, particularly React for frontend and Node.js for
-            backend development.
+            Hi, I&apos;m Rohan Naidu, a full stack developer with over 3 years
+            of experience in building web applications. I specialize in
+            JavaScript technologies, particularly React for frontend and Node.js
+            for backend development.
           </p>
           <p className="mb-4">
             My journey in web development started when I built my first website
-            for a local business while still in college. Since then, I've worked
-            on a variety of projects, from small business websites to
+            for a local business while still in college. Since then, I&apos;ve
+            worked on a variety of projects, from small business websites to
             large-scale enterprise applications.
           </p>
           <h3 className="text-2xl font-semibold mt-6 mb-4">Skills</h3>
@@ -276,9 +276,9 @@ export default function Home() {
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-6">Contact Me</h2>
           <p className="mb-6">
-            I'm always open to new opportunities and collaborations. If you have
-            a project you'd like to discuss or just want to say hi, feel free to
-            reach out!
+            I&apos;m always open to new opportunities and collaborations. If you
+            have a project you&apos;d like to discuss or just want to say hi,
+            feel free to reach out!
           </p>
           <form className="space-y-4">
             <div>
