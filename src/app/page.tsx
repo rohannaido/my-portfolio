@@ -304,7 +304,8 @@ export default function Home() {
             have a project you&apos;d like to discuss or just want to say hi,
             feel free to reach out!
           </p>
-          <form className="space-y-4">
+          <form className="space-y-4" action="mailto:rohannaiduu@gmail.com" method="POST" encType="text/plain"
+          >
             <div>
               <label htmlFor="name" className="block mb-2">
                 Name
@@ -341,9 +342,8 @@ export default function Home() {
             <button
               type="submit"
               className="bg-gradient-to-r from-violet-700 to-violet-900 hover:bg-gradient-to-r hover:from-violet-800 hover:to-violet-900 text-gray-100 font-bold py-2 px-4 rounded dark:bg-gradient-to-r dark:from-violet-500 dark:to-violet-600 dark:hover:bg-gradient-to-r dark:hover:from-violet-400 dark:hover:to-violet-500"
-              disabled
             >
-              Send Message (under construction)
+              Send Message
             </button>
           </form>
           <div className="mt-8 flex justify-center space-x-4">
