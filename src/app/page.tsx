@@ -190,7 +190,7 @@ export default function Home() {
         ref={sectionRefs.home}
         className="min-h-[65vh] flex flex-col justify-center items-center pt-16"
       >
-        <h1 className="text-6xl font-bold mb-4 mt-32">Rohan Naidu</h1>
+        <h1 className="text-5xl sm:text-6xl font-bold mb-4 mt-32">Rohan Naidu</h1>
         <p className="text-3xl mb-6">Full Stack Developer</p>
         <p className="text-center max-w-2xl mb-8 px-4">
           Welcome to my portfolio! I&apos;m a passionate full stack developer
@@ -217,16 +217,17 @@ export default function Home() {
           {projects.filter(project => project.isActive).map((project, index) => (
             <div
               key={index}
-              className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden"
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden sm:h-[32rem]"
             >
               <Image
                 src={project.image}
                 alt={project.title}
                 width={300}
                 height={200}
-                className="w-full"
+                className="w-full sm:h-1/2"
+                style={{ objectFit: "cover" }}
               />
-              <div className="p-4 h-64 flex flex-col justify-between">
+              <div className="p-4 flex flex-col justify-between sm:h-1/2">
                 <div>
                   <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                   {project.techStack && <h4 className="text-l font-semibold mb-2">{project.techStack}</h4>}
@@ -234,8 +235,8 @@ export default function Home() {
                     {project.description}
                   </p>
                 </div>
-                <div className="pb-2 w-full">
-                  <div className="flex justify-end">
+                <div className="w-full">
+                  <div className="flex flex-col sm:flex-row justify-end w-full gap-2">
                     {project.link && <a
                       href={project.link}
                       target="_blank"
@@ -248,7 +249,7 @@ export default function Home() {
                       href={project.sourceCodeLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="ml-4 bg-gradient-to-r from-purple-800 to-purple-900 text-white py-3 px-6 rounded-lg"
+                      className="bg-gradient-to-r from-purple-800 to-purple-900 text-white py-3 px-6 rounded-lg"
                     >
                       View Source Code
                     </a>
