@@ -72,12 +72,43 @@ export default function Home() {
 
   const projects = [
     {
+      title: "Vercel Clone",
+      techStack: "NextJS | WebSocket | Microservices | AWS (S3) Redis (Pub/Sub, Hash, List)",
+      description:
+        "Web application that builds, displays real-time build logs and hosts React frontend application.",
+      image: "https://github.com/rohannaido/vercel/raw/main/docs/images/vercel-project-screenshot-1.png",
+      link: null,
+      sourceCodeLink: "https://github.com/rohannaido/vercel",
+      isActive: 1,
+    },
+    {
+      title: "Replit Clone",
+      techStack: "NextJS | WebSocket | Docker | Kubernetes | AWS (EKS, S3)",
+      description:
+        "Online coding platform that provisions a coding environment in the browser connected to cloud.",
+      image: "https://github.com/rohannaido/replit/raw/main/docs/assets/repl-2.png",
+      link: null,
+      sourceCodeLink: "https://github.com/rohannaido/replit",
+      isActive: 1,
+    },
+    {
+      title: "School Timetable Builder",
+      techStack: "NextJS | PostgreSQL | Prisma | TailwindCSS",
+      description:
+        "Application where users to add school data and build timetable using a user-friendly drag and drop UI.",
+      image: "https://github.com/rohannaido/sis/raw/main/docs/screenshots/drag-and-drop-update.png",
+      link: "https://sis-two.vercel.app/",
+      sourceCodeLink: "https://github.com/rohannaido/sis",
+      isActive: 1,
+    },
+    {
       title: "Booking App",
       description:
-        "A booking app where users can book hotels in Indian cities. It is integrated with Firebase to fetch hotel data as per city name. Users can filter and sort hotels results by price and ratings. Hotel Images are displayed in a carousel form. All the components are built using pure CSS and in-house.",
+        "A booking app where users can book hotels in Indian cities. It is integrated with Firebase to fetch hotel data as per city name. Users can filter and sort hotels results by price and ratings.",
       image: BookingAppImage,
       link: "https://rohannaido.github.io/booking-app/",
       sourceCodeLink: "https://github.com/rohannaido/booking-app",
+      isActive: 1,
     },
     {
       title: "Angular Component Library",
@@ -86,6 +117,7 @@ export default function Home() {
       image: AngularComponentLibraryImage,
       link: "https://rohannaido.github.io/component-library/",
       sourceCodeLink: "https://github.com/rohannaido/component-library",
+      isActive: 1,
     },
     {
       title: "Video App",
@@ -94,14 +126,7 @@ export default function Home() {
       image: VideoAppImage,
       link: "https://rohannaido.github.io/video-app/",
       sourceCodeLink: "https://github.com/rohannaido/video-app",
-    },
-    {
-      title: "Video App",
-      description:
-        "This is a video library application where users can watch videos, add videos to watch Later, Like videos and access and clear their watch history.",
-      image: VideoAppImage,
-      link: "https://rohannaido.github.io/video-app/",
-      sourceCodeLink: "https://github.com/rohannaido/video-app",
+      isActive: 0,
     },
     {
       title: "Notes App",
@@ -110,6 +135,7 @@ export default function Home() {
       image: NotesAppImage,
       link: "https://rohannaido.github.io/notes-app/",
       sourceCodeLink: "https://github.com/rohannaido/notes-app",
+      isActive: 1,
     },
     {
       title: "Wheres waldo",
@@ -118,6 +144,7 @@ export default function Home() {
       image: WheresWaldoImage,
       link: "https://rohannaido.github.io/wheres-waldo/",
       sourceCodeLink: "https://github.com/rohannaido/wheres-waldo",
+      isActive: 0,
     },
   ];
 
@@ -131,11 +158,10 @@ export default function Home() {
                 <li key={section}>
                   <button
                     onClick={() => scrollToSection(section)}
-                    className={`capitalize ${
-                      activeSection === section
-                        ? "text-blue-500 font-bold"
-                        : "text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
-                    }`}
+                    className={`capitalize ${activeSection === section
+                      ? "text-blue-500 font-bold"
+                      : "text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                      }`}
                   >
                     {section}
                   </button>
@@ -168,7 +194,7 @@ export default function Home() {
         <p className="text-3xl mb-6">Full Stack Developer</p>
         <p className="text-center max-w-2xl mb-8 px-4">
           Welcome to my portfolio! I&apos;m a passionate full stack developer
-          with expertise in React, Node.js, and cloud technologies. I love
+          with expertise in React, Angular, Node.js, SQL and cloud technologies. I love
           building scalable and efficient web applications that solve real-world
           problems.
         </p>
@@ -188,7 +214,7 @@ export default function Home() {
       >
         <h2 className="text-3xl font-bold mb-8">My Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 max-w-[1400px]">
-          {projects.map((project, index) => (
+          {projects.filter(project => project.isActive).map((project, index) => (
             <div
               key={index}
               className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden"
@@ -200,21 +226,24 @@ export default function Home() {
                 height={200}
                 className="w-full"
               />
-              <div className="p-4 flex flex-col justify-between">
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {project.description}
-                </p>
+              <div className="p-4 h-64 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                  {project.techStack && <h4 className="text-l font-semibold mb-2">{project.techStack}</h4>}
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    {project.description}
+                  </p>
+                </div>
                 <div className="pb-2 w-full">
                   <div className="flex justify-end">
-                    <a
+                    {project.link && <a
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-gradient-to-r from-purple-800 to-purple-900 text-white py-3 px-6 rounded-lg"
                     >
                       View Project
-                    </a>
+                    </a>}
                     <a
                       href={project.sourceCodeLink}
                       target="_blank"
@@ -239,16 +268,10 @@ export default function Home() {
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-6">About Me</h2>
           <p className="mb-4">
-            Hi, I&apos;m Rohan Naidu, a full stack developer with over 3 years
+            Hi, I&apos;m Rohan Naidu, a full stack developer with over 5 years
             of experience in building web applications. I specialize in
-            JavaScript technologies, particularly React for frontend and Node.js
+            JavaScript, React and Angular for frontend and Node.js and SQL databases
             for backend development.
-          </p>
-          <p className="mb-4">
-            My journey in web development started when I built my first website
-            for a local business while still in college. Since then, I&apos;ve
-            worked on a variety of projects, from small business websites to
-            large-scale enterprise applications.
           </p>
           <h3 className="text-2xl font-semibold mt-6 mb-4">Skills</h3>
           <ul className="list-disc list-inside mb-4 grid grid-cols-2 gap-2">
